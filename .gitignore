@@ -1,0 +1,10 @@
+# python venv
+**/venv/**
+# config and secrets
+.env
+
+# setup py module output
+**/*.egg-info
+
+# pycache
+**/__pycache__/**
