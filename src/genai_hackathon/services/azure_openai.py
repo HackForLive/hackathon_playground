@@ -1,5 +1,6 @@
 import os
 
+from genai_hackathon.models.user_query import UserQuery
 from openai import AzureOpenAI
 
 
@@ -19,14 +20,14 @@ class AzureOpenAIService():
         return self._client
     
 
-    def create_completion_query(self, prompt: str) -> str:
-        if not prompt:
+    def create_completion_query(self, query: UserQuery) -> str:
+        if not query.prompt:
             return ""
 
         response = self._client.completions.create(
             model=self._deployment_type,
-            prompt=prompt,
-            temperature=0.4,
+            prompt=query.prompt,
+            temperature=query.temperature,
             max_tokens=200,
             top_p=0.5,
             frequency_penalty=0,
@@ -35,4 +36,4 @@ class AzureOpenAIService():
         )
 
 
-        return prompt + response.choices[0].text
+        return response.choices[0].text

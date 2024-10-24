@@ -1,5 +1,6 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 class UserQuery(BaseModel):
-    query: str
+    prompt: str
+    temperature: float = Field(None, ge=0.0, le=1.0)
     # optional params
