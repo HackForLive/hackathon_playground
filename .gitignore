@@ -8,3 +8,7 @@
 
 # pycache
 **/__pycache__/**
+
+# lib
+**/lib/**
+**/bdist*/**

@@ -1,13 +1,10 @@
 import streamlit as st
 
 from genai_hackathon.services.azure_openai import AzureOpenAIService
+from genai_hackathon.utils.environment import load_env
 
-
-
-# from dotenv import find_dotenv
-# from dotenv import load_dotenv
-# env_file = find_dotenv(".env")
-# load_dotenv(env_file)
+# load env vars
+load_env()
 
 
 st.title("Gen AI Home")
@@ -29,5 +26,5 @@ inputs = {"query": text}
 if st.button(label='Completion'):
     azure_service = AzureOpenAIService()
     result = azure_service.create_completion_query(
-        prompt=input.query)
+        prompt=inputs['query'])
     st.subheader(f"Reponse from API: {result}")
