@@ -1,0 +1,12 @@
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "genai_hackathon"
+dynamic = ["version"]
+
+[tool.setuptools.dynamic]
+version = {attr = "genai_hackathon.version.VERSION"}
+
+[tool.setuptools]
+packages = ["genai_hackathon"]
+include-package-data = true

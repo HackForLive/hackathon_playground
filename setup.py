@@ -1,12 +1,10 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='hackthon_playground',
+    name='genai_hackathon',
     version='1.0',
-    description='A user interface module',
-    author='Test User',
-    author_email='testuser@test',
-    packages=['frontend_ui', 'backend'],
+    description='genai hackathon module',
+    packages=['genai_hackathon'],
     install_requires=[
         'streamlit',
         'pydantic',

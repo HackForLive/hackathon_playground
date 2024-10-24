@@ -1,0 +1,16 @@
+name: hackathon_venv
+channels:
+  - default
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pip
+  - pip:
+    - streamlit
+    - pydantic
+    - setuptools
+    - python-dotenv
+    - jupyter
+    - pytest
+    - pandas
+    - openai
