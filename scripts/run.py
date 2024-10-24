@@ -17,7 +17,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     if args.action == 'install':
-        subprocess.run('pip install genai_hackathon', cwd='src', shell=True)
+        subprocess.run('pip install .', cwd='src', shell=True)
     elif args.action == 'build':
         subprocess.run(f"conda env update --name hackathon_venv --file {env_config} --prune", shell=True)
         subprocess.run('pip install -e .', cwd='src', shell=True)

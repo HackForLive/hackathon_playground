@@ -14,9 +14,18 @@ Init environemnt:
 ```
 conda env create --file environment.yaml -n hackathon_venv
 conda activate hackathon_venv
+(go base) conda activate
+(delete) conda env remove --name hackathon_venv
 ```
 
-Build project
+
+Install package from cmd
+```
+run.bat install
+```
+
+
+Build project from cmd
 
 * Windows
     ```
