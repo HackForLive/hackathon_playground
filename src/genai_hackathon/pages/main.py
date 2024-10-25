@@ -1,15 +1,9 @@
-from pathlib import Path
-
 import streamlit as st
 
 from genai_hackathon import src_dir
 from genai_hackathon.models.user_query import UserQuery
 from genai_hackathon.services.azure_openai import AzureOpenAIService
-from genai_hackathon.utils.environment import load_env
 from genai_hackathon.utils.logger import app_logger, log_to_console, log_to_file
-
-# load env vars
-load_env()
 
 # enable logging to console
 log_to_console(enable=True)

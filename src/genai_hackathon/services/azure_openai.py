@@ -1,19 +1,20 @@
-import os
+from openai import AzureOpenAI
 
 from genai_hackathon.models.user_query import UserQuery
-from openai import AzureOpenAI
+from genai_hackathon.utils.environment import get_env_var
+
 
 
 class AzureOpenAIService():
     def __init__(self) -> None:
 
         self._client = AzureOpenAI(
-            api_key=os.getenv("AZURE_OPENAI_API_KEY"),
-            api_version=os.getenv("AZURE_API_VERSION"),
-            azure_endpoint=os.getenv("AZURE_ENDPOINT")
+            api_key=get_env_var("AZURE_OPENAI_API_KEY"),
+            api_version=get_env_var("AZURE_API_VERSION"),
+            azure_endpoint=get_env_var("AZURE_ENDPOINT")
         )
 
-        self._deployment_type=os.getenv("AZURE_DEPLOYMENT_NAME")
+        self._deployment_type=get_env_var("AZURE_DEPLOYMENT_NAME")
     
     @property
     def client(self):
