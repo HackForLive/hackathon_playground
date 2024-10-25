@@ -6,11 +6,11 @@ dependencies:
   - python=3.12
   - pip
   - pip:
-    - streamlit
+    - streamlit==1.39.0
     - pydantic
     - setuptools
     - python-dotenv
     - jupyter
     - pytest
-    - pandas
-    - openai
+    - pandas==2.2.3
+    - openai==1.52.2

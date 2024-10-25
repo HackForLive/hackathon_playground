@@ -80,6 +80,12 @@ Run streamlit UI
 run.bat streamlit
 ```
 
+Run all tests
+
+```
+run.bat test
+```
+
 Get help
 
 ```
