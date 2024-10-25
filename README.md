@@ -67,6 +67,9 @@ AZURE_API_VERSION=2024-02-01
 where azure endpoint is available in your Azure OpenAI service settings, azure openai api key is secret also available in you Azure OpenAI service, azure deployment name and azure api version should be also available (I will check).
 The config is ignored in .gitignore because it contains secrets so anyone could use it on your behalf!
 
+
+You will see similar error if you do not create an environment file.
+
 ![Example of missing env configuration file](./assets/missingEnvFile.png)
 
 
