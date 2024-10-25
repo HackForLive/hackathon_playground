@@ -1,12 +1,21 @@
-import json
-from genai_hackathon.models.user_query import UserQuery
+from pathlib import Path
+
 import streamlit as st
 
+from genai_hackathon import src_dir
+from genai_hackathon.models.user_query import UserQuery
 from genai_hackathon.services.azure_openai import AzureOpenAIService
 from genai_hackathon.utils.environment import load_env
+from genai_hackathon.utils.logger import app_logger, log_to_console, log_to_file
 
 # load env vars
 load_env()
+
+# enable logging to console
+log_to_console(enable=True)
+
+# enable logging to file
+log_to_file(filename=src_dir.parent / 'app.log')
 
 
 st.title("Gen AI Home")
@@ -22,6 +31,8 @@ completion_inputs = {"prompt": text, "temperature": temperature}
 # When user clicks on button it will fetch the API
 if st.button(label='Completion'):
     q = UserQuery(**completion_inputs)
+
+    app_logger.debug(f"User query: {q}")
 
     azure_service = AzureOpenAIService()
     result = azure_service.create_completion_query(
