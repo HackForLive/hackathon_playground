@@ -54,7 +54,8 @@ run.bat build
 ```
 
 Now you need to setup free azure account for month (we can of course create alternative way).
-In your azure account you need to provision Azure OpenAI service with some model deployment.After you create azure account and Azure OpenAI service, you need to create file name .env with following content:
+In your azure account you need to provision Azure OpenAI service with some model deployment.
+After you create azure account and Azure OpenAI service, you need to create file name .env with following content:
  
 ```
 AZURE_ENDPOINT=https://azure-openai-my-test.openai.azure.com/
@@ -64,7 +65,10 @@ AZURE_API_VERSION=2024-02-01
 ```
 
 where azure endpoint is available in your Azure OpenAI service settings, azure openai api key is secret also available in you Azure OpenAI service, azure deployment name and azure api version should be also available (I will check).
-The config is ignored in .gitignore because it contains secrets so anyone could use it on your behalf! 
+The config is ignored in .gitignore because it contains secrets so anyone could use it on your behalf!
+
+![Example of missing env configuration file](./assets/missingEnvFile.png)
+
 
 
 Run streamlit UI
