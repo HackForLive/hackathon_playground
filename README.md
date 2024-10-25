@@ -21,7 +21,7 @@ cd C:\Users\<User>\miniconda3\condabin
 
 Linux example:
 ```
-Activate Conda (Linux eval "$(/home/malisha/miniforge3/bin/conda shell.bash hook)")
+Activate Conda (Linux eval "$(/home/<user>/miniforge3/bin/conda shell.bash hook)")
 ```
 
 # 2.3 Create Conda Environment
