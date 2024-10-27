@@ -13,7 +13,7 @@ log_to_console(enable=True)
 log_to_file(filename=src_dir.parent / 'app.log')
 
 
-st.title("Gen AI Home")
+st.title("Gen AI Playground")
 
 text = st.text_input("Completion prompt", value="What is a credit rating?", max_chars=None)
 st.write("Select the temperature from slider bellow:")
@@ -33,7 +33,7 @@ if st.button(label='Completion'):
     result = azure_service.get_response(user_query=q)
     st.subheader(f"Reponse from API: {result}")
 
-if st.button(label='ChatCompletion'):
+if st.button(label='ChatCompletionWithRag', key='cc_button_id'):
     q = UserQuery(prompt=text, temperature=temperature)
 
     azure_service = AzureRagService()

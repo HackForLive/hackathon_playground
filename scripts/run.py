@@ -23,7 +23,7 @@ if __name__ == "__main__":
         subprocess.run(f"conda env update --name hackathon_venv --file {env_config} --prune", shell=True)
         subprocess.run('pip install -e .', cwd='src', shell=True)
     elif args.action == 'streamlit':
-        subprocess.run('streamlit run genai_hackathon/pages/main.py', cwd="src", shell=True)
+        subprocess.run('streamlit run genai_hackathon/pages/app.py', cwd="src", shell=True)
     elif args.action == 'init_db':
         subprocess.run(f'python init_vector_db.py', cwd='scripts', shell=True)
     elif args.action == 'test':
