@@ -13,7 +13,8 @@ print(env_config)
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(prog='run', description='Automation of tasks')
     
-    parser.add_argument('action', type=str, choices=['install', 'build', 'streamlit', 'test', 'test_smoke'])
+    parser.add_argument('action', type=str, choices=[
+        'install', 'build', 'streamlit', 'init_db', 'test', 'test_smoke'])
     args = parser.parse_args()
 
     if args.action == 'install':
@@ -23,6 +24,8 @@ if __name__ == "__main__":
         subprocess.run('pip install -e .', cwd='src', shell=True)
     elif args.action == 'streamlit':
         subprocess.run('streamlit run genai_hackathon/pages/main.py', cwd="src", shell=True)
+    elif args.action == 'init_db':
+        subprocess.run(f'python init_vector_db.py', cwd='scripts', shell=True)
     elif args.action == 'test':
         subprocess.run(f'python -m pytest -rpP -c {pytest_config}', cwd="test", shell=True)
     elif args.action == 'test_smoke':

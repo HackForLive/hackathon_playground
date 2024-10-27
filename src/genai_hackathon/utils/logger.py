@@ -33,6 +33,7 @@ def log_to_file(filename: Path, log_level: Literal[10] = logging.DEBUG):
     global file_handlers
 
     if filename not in file_handlers:
+        
         handler = create_file_handler(filename=filename)
+        file_handlers[filename] = handler
         app_logger.addHandler(handler)
-

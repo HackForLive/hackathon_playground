@@ -45,8 +45,14 @@ To install package, run
 run.bat install
 ```
 
+# 2.5 Initialize Vector Database
 
-# 2.5 Build And Run
+To initialize vector db, run 
+```
+run.bat init_db
+```
+
+# 2.6 Build And Run
 
 After each change project needs to be build! To build the project run:
 ```

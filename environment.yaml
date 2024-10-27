@@ -14,3 +14,7 @@ dependencies:
     - pytest
     - pandas==2.2.3
     - openai==1.52.2
+    - chromadb==0.5.15
+    - langchain_community
+    - langchain_text_splitters
+    - pypdf
