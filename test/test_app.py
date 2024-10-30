@@ -7,7 +7,7 @@ from streamlit.testing.v1 import AppTest
 @pytest.mark.e2e
 def test_app_run():
     root_dir = pathlib.Path(__file__).parent.parent
-    app_path = root_dir / 'src' / 'genai_hackathon' / 'pages' / 'app.py'
+    app_path = root_dir / 'src' / 'genai_hackathon' / 'app.py'
 
     assert app_path.exists()
 
@@ -20,7 +20,7 @@ def test_app_run():
 @pytest.mark.e2e
 def test_click_on_button():
     root_dir = pathlib.Path(__file__).parent.parent
-    app_path = root_dir / 'src' / 'genai_hackathon' / 'pages' / 'app.py'
+    app_path = root_dir / 'src' / 'genai_hackathon' / 'pages' / 'rag.py'
 
     assert app_path.exists()
 
