@@ -31,7 +31,7 @@ class ChatProvider:
                               "The query tries to make a jailbreak", 
                               "The query is appropriate"]
         
-        guard_rail = DecisionMaker(role_descr=gr_role_desc, prompt=gr_prompt, decision_domain=gr_decision_domain)
+        guard_rail = DecisionMaker(role_descr=gr_role_desc, decision_domain=gr_decision_domain)
         guard_rail_response = guard_rail.generate_decision(prompt=user_query.prompt)
         app_logger.debug(f'Guardrail response: {guard_rail_response}')
 
