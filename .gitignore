@@ -25,14 +25,5 @@
 
 # Excel files
 *.xlsx
-*.db
 
-# notebooks
-*.ipynb
-
-# Excel files
-*.xlsx
 *.db
-*.db
-*.ipynb
-*.xlsx
