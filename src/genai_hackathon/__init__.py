@@ -5,3 +5,5 @@ src_dir = base_dir.parent
 
 env_cfg_path = src_dir.parent / '.env'
 db_path = src_dir.parent / 'db' / 'vector_db'
+
+fin_report_db_path = src_dir.parent / 'db' / 'fin_report_db' / 'db.sqlite'
