@@ -1,6 +1,4 @@
 from typing import List, Tuple
-from genai_hackathon.models.prompt.assistant import RevenueReportAssistant
-from genai_hackathon.models.user_query import UserQuery
 from genai_hackathon.services.azure_openai_service import AzureOpenAIService
 from genai_hackathon.services.vector_db_service import LocalVectorDbService
 from genai_hackathon.services.sqlite_db_service import FinancialReportDbManager
