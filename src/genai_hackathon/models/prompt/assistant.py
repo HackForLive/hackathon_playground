@@ -20,15 +20,4 @@ class CorporateCreditAssistant:
         The data:
         """+str(docs)+"""
         """
-
-class RevenueReportAssistant:
-    @staticmethod
-    def get_prompt(docs: str) -> str:
-        return """
-        You are a financial professional. Answer only based on reports data provided bellow. 
-        Do not utilize internal knowledge and do not make things up.
-        If you don't know the answer, just say: I don't know
-        --------------------
-        The reports data:
-        """ + str(docs) + """
-        """
+    
