@@ -26,6 +26,7 @@ if __name__ == "__main__":
         subprocess.run('streamlit run genai_hackathon/app.py', cwd="src", shell=True)
     elif args.action == 'init_db':
         subprocess.run(f'python init_vector_db.py', cwd='scripts', shell=True)
+        subprocess.run(f'python init_finance_sqlite.py', cwd='scripts', shell=True)
     elif args.action == 'test':
         subprocess.run(f'python -m pytest -rpP -c {pytest_config}', cwd="test", shell=True)
     elif args.action == 'test_smoke':

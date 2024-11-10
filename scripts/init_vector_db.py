@@ -36,20 +36,12 @@ def load_test_corp_credit_guide():
     metadata = []
     ids = []
 
-    i = 0
-
-    for chunk in chunks:
+    for i, chunk in enumerate(chunks):
         documents.append(chunk.page_content)
         ids.append("ID"+str(i))
         metadata.append(chunk.metadata)
 
-        i += 1
-
     # adding to chromadb
-
-    # print(documents)
-    # print(metadata)
-    # print(ids)
     collection.add(
         documents=documents,
         metadatas=metadata,
@@ -83,14 +75,10 @@ def load_financial_reports():
     metadata = []
     ids = []
 
-    i = 0
-
-    for chunk in chunks:
+    for i, chunk in enumerate(chunks):
         documents.append(chunk.page_content)
         ids.append("ID"+str(i))
         metadata.append(chunk.metadata)
-
-        i += 1
 
     # adding to chromadb
     collection.add(

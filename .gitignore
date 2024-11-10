@@ -19,3 +19,4 @@
 # db files
 *.sqlite3
 **/vector_db/**
+**/fin_report_db/**
