@@ -10,7 +10,7 @@ class DecisionMaker:
             api_version=get_env_var("AZURE_API_VERSION"),
             azure_endpoint=get_env_var("AZURE_ENDPOINT")
         )
-        self.deployment_name = get_env_var("AZURE_DEPLOYMENT_NAME")
+        self.deployment_name = "gpt-4o-mini"
         self.role_descr = role_descr
         self.decision_domain = decision_domain
 
