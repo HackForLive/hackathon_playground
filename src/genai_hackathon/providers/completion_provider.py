@@ -1,4 +1,5 @@
 from genai_hackathon.models.user_query import UserQuery
+from genai_hackathon.models.guardrails import guardrails_check_query, guardrails_check_response
 from genai_hackathon.services.azure_openai_service import AzureOpenAIService
 from genai_hackathon.utils.environment import get_env_var
 from genai_hackathon.utils.logger import app_logger
@@ -17,6 +18,10 @@ class CompletionProvider:
     def get_response(self, user_query: UserQuery, model: str) -> str:
         if not user_query.prompt:
             return ""
+                # Run guardrail check
+        guard_rail_on_query = guardrails_check_query(user_query)
+        if guard_rail_on_query != "The query is appropriate":
+            return guard_rail_on_query
 
         response = self._service.client.completions.create(
             model=model,
@@ -29,6 +34,11 @@ class CompletionProvider:
             stop=None
         )
 
-        app_logger.debug(response.choices[0].text)
+        app_logger.debug("LLM response: " + response.choices[0].text)
+
+        # Run guardrail check on the response
+        guard_rail_response = guardrails_check_response(user_query, response.choices[0].message.content)
+        if guard_rail_response != "The response is appropriate":
+            return "Sorry I can't help with that."
 
         return response.choices[0].text

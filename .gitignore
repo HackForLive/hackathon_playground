@@ -19,3 +19,11 @@
 # db files
 *.sqlite3
 **/vector_db/**
+
+# notebooks
+*.ipynb
+
+# Excel files
+*.xlsx
+
+*.db

@@ -1,5 +1,6 @@
 from genai_hackathon.models.prompt.assistant import BasicAssistant
 from genai_hackathon.models.user_query import UserQuery
+from genai_hackathon.models.guardrails import guardrails_check_query, guardrails_check_response
 from genai_hackathon.services.azure_openai_service import AzureOpenAIService
 from genai_hackathon.utils.environment import get_env_var
 from genai_hackathon.utils.logger import app_logger
@@ -17,18 +18,33 @@ class ChatProvider:
     
     def get_response(self, user_query: UserQuery, model: str):
         
-        app_logger.debug(user_query.prompt)
+        # Log the user's prompt
+        app_logger.debug(f'User prompt:{user_query.prompt}')
 
-        assitant = BasicAssistant()
+        # Run guardrail check
+        guard_rail_on_query = guardrails_check_query(user_query)
+        if guard_rail_on_query != "The query is appropriate":
+            return guard_rail_on_query
+
+
+        # Create the assistant and get response
+        assistant = BasicAssistant()
         response = self._service.client.chat.completions.create(
             model=model,
-            messages = [
-                {"role":"system","content":assitant.get_prompt()},
-                {"role":"user","content":user_query.prompt}    
+            messages=[
+                {"role": "system", "content": assistant.get_prompt()},
+                {"role": "user", "content": user_query.prompt}
             ],
             temperature=user_query.temperature
         )
 
-        app_logger.debug(response.choices[0].message.content)
+        # Log the response from the API
+        app_logger.debug("LLM response: " + response.choices[0].message.content)
+
+        # Run guardrail check on the response
+        guard_rail_response = guardrails_check_response(user_query, response.choices[0].message.content)
+        if guard_rail_response != "The response is appropriate":
+            return "Sorry I can't help with that."
 
         return response.choices[0].message.content
+    
